@@ -1,0 +1,1 @@
+{"name":"Local: Get_Prefix_Sum","url":"d:\\Data Structure\\Module 4\\Get_Prefix_Sum.cpp","tests":[{"id":1724420072547,"input":"5\n2 4 1 5 3","output":"15 12 7 6 2 "}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Data Structure\\Module 4\\Get_Prefix_Sum.cpp","group":"local","local":true}

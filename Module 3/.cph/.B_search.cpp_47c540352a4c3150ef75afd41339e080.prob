@@ -1,0 +1,1 @@
+{"name":"Local: B_search","url":"d:\\Data Structure\\Module 3\\B_search.cpp","tests":[{"id":1724352465723,"input":"5\n2 4 5 6 7 \n7","output":"found"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Data Structure\\Module 3\\B_search.cpp","group":"local","local":true}

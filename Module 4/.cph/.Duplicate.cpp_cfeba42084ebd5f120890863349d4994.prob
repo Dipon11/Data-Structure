@@ -1,0 +1,1 @@
+{"name":"Local: Duplicate","url":"d:\\Data Structure\\Module 4\\Duplicate.cpp","tests":[{"id":1724418693798,"input":"5\n1 2 3 4 5","output":"NO"},{"id":1724419568302,"input":"6\n2 1 3 5 2 1","output":"YES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Data Structure\\Module 4\\Duplicate.cpp","group":"local","local":true}

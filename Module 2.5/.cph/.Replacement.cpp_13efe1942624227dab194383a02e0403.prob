@@ -1,0 +1,1 @@
+{"name":"Local: Replacement","url":"d:\\Data Structure\\Module 2.5\\Replacement.cpp","tests":[{"id":1724330686905,"input":"5\n1 -2 0 3 4","output":"1 2 0 1 1 "}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Data Structure\\Module 2.5\\Replacement.cpp","group":"local","local":true}
