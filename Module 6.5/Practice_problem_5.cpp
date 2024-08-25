@@ -31,36 +31,6 @@ void insert_at_tail(node *&head, int val)
   temp->next = newNode;
   cout << "inserted at tail" << endl;
 }
-void insert_at_pos(node *&head, int pos, int val)
-{
-  node *newNode = new node(val);
-
-     if (pos == 0) // Special case for position 0
-    {
-        newNode->next = head;
-        head = newNode;
-        cout << "Inserted at head (position 0)" << endl;
-        return;
-    }
-  node *temp = head;
-  for (int i = 1; i <= pos - 1; i++)
-  {
-    temp = temp->next;
-  }
-  if (temp == NULL)
-  {
-    cout << "Innvalid INdex" << endl;
-  }
-  else
-  {
-    newNode->next = temp->next;
-    temp->next = newNode;
-    cout << endl
-         << endl
-         << "Inserted at position" << pos << endl
-         << endl;
-  }
-}
 
 void print(node *head)
 {
@@ -72,6 +42,20 @@ void print(node *head)
   }
   cout << endl;
 }
+int sizeof_linklist(node *head)
+{
+  int count = 0;
+  node *temp = head;
+  while (temp != NULL)
+
+  {
+    count++;
+    temp = temp->next;
+    // cout << count << endl;
+  }
+  return count;
+}
+
 int main()
 {
   node *head = NULL;
@@ -88,18 +72,22 @@ int main()
     {
       insert_at_tail(head, val);
     }
-  }
-  print(head);
-  int q;
-  cin >> q;
-  while (q--)
-  {
-    int pos, val;
-    cin >> pos >> val;
-   
-    insert_at_pos(head, pos, val);
     print(head);
   }
-
+  print(head);
+  int size = sizeof_linklist(head);
+  for (node *i = head; i->next != NULL; i = i->next)
+  {
+    for (node *j = i->next; j != NULL; j = j->next)
+    {
+      // cout << i->val << " " << j->val << endl;
+      if (i->val > j->val)
+      {
+        swap(i->val, j->val);
+      }
+      cout << endl;
+    }
+  }
+  print(head);
   return 0;
 }
