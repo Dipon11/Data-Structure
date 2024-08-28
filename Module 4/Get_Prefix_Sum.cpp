@@ -6,9 +6,12 @@ int main()
 
   int n;
   cin >> n;
-  long long int a[n];
+   vector<long long int> a  ;
+  
+   long int a[n];
   long long int pre[n+1];
 
+int NumArray(int a[])
   for (int i = 0; i < n; i++)
   {
     cin >> a[i];
