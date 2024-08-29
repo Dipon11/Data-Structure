@@ -98,18 +98,29 @@ void delete_node(node *head, int pos) // 0(n)
   temp->next->prev = temp;
   delete deleteNod;
 }
-void delete_tail(node *&tail) // 0(1)
+void delete_tail(node*&head,node *&tail) // 0(1)
 {
   node *deleteNode = tail;
   tail = tail->prev;
   delete deleteNode;
+   if(tail==NULL)
+  {
+  head=NULL;
+  return;
+  }
   tail->next = NULL;
 }
-void delete_head(node *&head) // o(1)
+void delete_head(node *&head ,node *&tail) // o(1)
 {
+
   node *headnode = head;
   head = head->next;
   delete headnode;
+  if(head==NULL)
+  {
+  tail=NULL;
+  return;
+  }
   head->prev = NULL;
 }
 int main()
@@ -122,12 +133,7 @@ int main()
   node *tail = c;
 
   // connection
-  head->next = a;
-  a->next = b;
-  a->prev = head;
-  b->prev = a;
-  b->next = c;
-  c->prev = b;
+  
 
   int pos;
   cin >> pos;
@@ -137,11 +143,11 @@ int main()
   }
   else if (pos == 0)
   {
-    delete_head(head);
+    delete_head(head,tail);
   }
   else if (pos == size(head) - 1)
   {
-    delete_tail(tail);
+    delete_tail(head,tail);
   }
   else
   {

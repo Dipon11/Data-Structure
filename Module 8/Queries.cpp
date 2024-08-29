@@ -47,9 +47,8 @@ void insert_at_head(node *&head, node *&tail, int val)
 
 void print_head_and_tail(node *head, node *tail)
 {
-  
-    cout << head->val << " " << tail->val << endl;
 
+  cout << head->val << " " << tail->val << endl;
 }
 
 int main()
@@ -62,7 +61,7 @@ int main()
   cin >> q;
   while (q--)
   {
-    
+
     cin >> pos >> v;
     if (pos == 0)
     {
