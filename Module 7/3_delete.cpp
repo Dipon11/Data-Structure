@@ -1,83 +1,90 @@
 #include <bits/stdc++.h>
 using namespace std;
-class node
-{
 
+// Definition for singly-linked list.
+class node {
 public:
-  int val;
-  node *next;
-  node(int val)
-  {
-    this->val = val;
-    this->next = NULL;
-  }
+    int val;
+    node *next;
+    node(int val) {
+        this->val = val;
+        this->next = NULL;
+    }
 };
-void delete_node(node *head, int pos)//0(n)
-{
-  node *temp = head;
-  for (int i = 1; i <= pos - 1; i++)
-  {
-    temp = temp->next;
-  }
-  node *deleteNode = temp->next;
-  temp->next = temp->next->next;
-  delete deleteNode;
-}
-void print(node *head)
-{
-  node *temp = head;
-  while (temp != NULL)
-  {
-    cout << temp->val << " ";
-    temp = temp->next;
-  }
-  cout << endl;
-}
-void delete_head (node *&head)//0(1)
-{
-  node *deleteNode=head;
-  head=head->next;
-delete deleteNode;
-}
-int size(node *head) // 0(n)
-{
-  node *temp = head;
-  int count = 0;
-  while (temp != NULL)
-  {
-    count++;
-    temp = temp->next;
-  }
-  return count;
-}
-int main()
-{
 
-  node *head = new node(10);
-  node *a = new node(20);
-  node *b = new node(30);
-  node *c = new node(40);
-  node *d = new node(50);
-  head->next = a;
-  a->next = b;
-  b->next = c;
-  c->next = d;
-  print(head);
-  int pos;
-  cin >> pos;
-  if (pos >= size(head))
-  {
-    cout << "Invalid" << endl;
-  }
-  else if(pos==0)
-  {
-    delete_head(head);
-  }
-  else
-  {
-    delete_node(head, pos);
-  }
-  print(head);
+// Function to get the size of the linked list
+int size(node *head) {
+    node *temp = head;
+    int count = 0;
+    while (temp != NULL) {
+        count++;
+        temp = temp->next;
+    }
+    return count;
+}
 
-  return 0;
+// Function to remove the nth node from the end of the list
+node* removeNthFromEnd(node* head, int n) {
+    int sz = size(head);
+    int pos = sz - n;
+    node *tmp = head;
+
+    if (head == NULL) return head;
+
+    if (pos == 0) {  // If the node to remove is the head
+        node *deleteNode = head;
+        head = head->next;
+        delete deleteNode;
+        return head;
+    }
+    
+    // If n is greater than or equal to the size of the list, return the head
+    if (n >= sz) {
+        return head;
+    }
+    
+    for (int i = 1; i < pos; i++) {  // Traverse to the node before the target
+        tmp = tmp->next;
+    }
+    
+    // Remove the nth node from the end
+    node *deleteNode = tmp->next;
+    tmp->next = tmp->next->next;
+    delete deleteNode;
+
+    return head;
+}
+
+// Function to print the linked list
+void print(node *head) {
+    node *temp = head;
+    while (temp != NULL) {
+        cout << temp->val << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+}
+
+int main() {
+    // Creating a linked list with nodes 10 -> 20 -> 30 -> 40 -> 50
+    node *head = new node(10);
+    node *a = new node(20);
+    
+    head->next = a;
+  ;
+ 
+    
+    // Print the initial linked list
+    print(head);
+    
+    int n;
+    cin >> n;  // The position from the end to remove
+    
+    // Remove the nth node from the end
+    head = removeNthFromEnd(head, n);
+    
+    // Print the linked list after deletion
+    print(head);
+
+    return 0;
 }
