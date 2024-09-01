@@ -87,9 +87,9 @@ int main()
     insert_at_tail(head, val);
   }
 
-  print_link_list(head);
-  int count = sizeof_linklist(head);
-  cout << "Size of the linked list: " << count << endl;
+  // print_link_list(head);
+  // int count = sizeof_linklist(head);
+  // cout << "Size of the linked list: " << count << endl;
   sort(head);
   print_link_list(head);
   return 0;
