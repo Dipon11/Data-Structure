@@ -1,0 +1,37 @@
+class Solution
+{
+public:
+    bool backspaceCompare(string s, string t)
+    {
+        stack<char> s1, s2;
+
+        for (char c : s)
+        {
+
+            if (c == '#') // jodi c # hoi tahole ami pop korbo top reh
+            {
+                if (!s1.empty())
+                    s1.pop(); // kintu amdr check korte hobe empty naki nahole segementation error
+            }
+            else
+            {
+                s1.push(c); // jodi # nah hoi taahoel push kore dilm
+            }
+        }
+        // second loop second stack er same function korbe jate 2 tah string compare korbo
+        for (char c : t)
+        {
+
+            if (c == '#')
+            {
+                if (!s2.empty())
+                    s2.pop();
+            }
+            else
+            {
+                s2.push(c);
+            }
+        }
+        return s1 == s2; // if (S1==S2) return true else false atar shortcut
+    }
+};

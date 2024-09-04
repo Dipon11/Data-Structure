@@ -1,0 +1,43 @@
+class Solution {
+public:
+    bool isValid(string s) {
+         stack<char>st;
+        for(char c: s)
+        {
+            if(c== '(' || c== '{' || c=='[')
+            {
+                st.push(c);
+
+            }
+            else
+            {
+                if(st.empty()) // to check if the staack is empty if
+                //this was not checked runtime error occurs 
+                //casue in 21 ,25,29 if condition line we check whether st.top() has a vlaue if there is no location avaialble we will get run time error 
+                {
+                    return false;
+                }
+                else{
+                    if(c==')' && st.top()=='(')
+                    {
+                        st.pop();
+                    }
+                    else  if(c=='}' && st.top()=='{')
+                    {
+                        st.pop();
+                    }
+                    else  if(c==']' && st.top()=='[')
+                    {
+                        st.pop();
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+            }
+        }
+   return st.empty();
+    }
+};
