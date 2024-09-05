@@ -1,75 +1,49 @@
-#include <bits/stdc++.h> 
-class Node{
-    
-    public: 
-        int val;
-        Node *next;
+class Stack
+{
+    Node* head;  // Pointer to the top of the stack
+    int sz;  // Variable to store the size of the stack
 
-    Node(int val){
-        this->val = val;
-        this->next = NULL;
-    }
-};
-class Queue {
- 
 public:
-    Queue() {
-        // Implement the Constructor
+    Stack()
+    {
+        head = NULL;
+        sz = 0;
     }
 
-    /*----------------- Public Functions of Queue -----------------*/
-
-    Node *head = NULL;
-    Node *tail = NULL;
-    int sz = 0;
-    bool isEmpty() {
-           
-           if(sz == 0) return true;
-        else return false;
+    int getSize()
+    {
+        return sz;
     }
 
-    void enqueue(int data) {
-       sz++;
-       Node *newNode= new Node(data);
-
-       if(head==NULL)
-       {
-           head=newNode;
-           tail=newNode;
-           return;
-       }
-       else{
-           tail->next=newNode;
-           tail=newNode;
-       }
+    bool isEmpty()
+    {
+        return sz == 0;
     }
 
-    int dequeue() {
-       
-     
+    void push(int data)
+    {   Node *newNode =new Node(data);
+        newNode->next=head;
+        head=newNode;
+        sz++;
+    }
+
+    void pop()
+    {
+        if(head==NULL)
+        {
+            return;
+        }
+        Node *deleteNode =head;
+        head=head->next;
+        delete deleteNode;
+        sz--;
+    }
+
+    int getTop()
+    {
         if (isEmpty()) {
-            return -1;
+            return -1;  // Stack is empty
         }
-      sz--;
-       Node *deleteNode= head;
-    
-      int val=deleteNode->val;  
-        if (head == NULL) {
-            tail = NULL;
-        }
-
-       head=head->next;
-       return val;
-      
-       delete deleteNode;
-
-    }
-
-    int front() {
-       if(!isEmpty())
-       {
-           return head->val;
-       }
-       else return -1;
+        return head->data;  // The top element is the head
     }
 };
