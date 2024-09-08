@@ -30,7 +30,7 @@ void level_order(Node * root)
      //2. jabitio jah kaj ase 
       cout<< f->val  <<endl;
       
-    //3. tar children rakha
+    //3. tar children rakhaope
    
    if (f->left)
    {
