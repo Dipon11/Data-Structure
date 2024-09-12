@@ -18,7 +18,7 @@ void inorder(TreeNode *root, vector<int> &v)
     v.push_back(root->data);
     inorder(root->right, v);
 }
-vector<int> getInOrderTraversal(TreeNode *root)
+int main()
 {
     vector<int> v;
     inorder(root, v);
